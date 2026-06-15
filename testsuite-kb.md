@@ -19,5 +19,5 @@ flowchart TD
 
     D -->|No| H
 
-    H --> I["Similar workflow found in 5 other applications. Use those validation patterns to generate an equivalent test for this application."]
+    H --> I["Similar workflow found in 5 other applications - here's what they checked; go write the equivalent for this app."]
 ```
