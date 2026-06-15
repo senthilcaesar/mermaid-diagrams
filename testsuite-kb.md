@@ -2,19 +2,22 @@
 flowchart TD
     A[User provides Target URL]
     B[Discoverer Agent plans test case scenario]
+    C[Designer Agent queries the knowledge base]
+    D{Does app_url exist?}
 
     A --> B
-    B --> C{Does app_url exist?}
+    B --> C
+    C --> D
 
-    C -->|Yes| D[Designer Agent performs in-app semantic search on existing test cases]
+    D -->|Yes| E[Designer Agent performs in-app semantic search on existing test cases]
 
-    D --> E{Similarity score ≥ 0.82?}
+    E --> F{Similarity score ≥ 0.82?}
 
-    E -->|Yes| F[Reuse existing test]
+    F -->|Yes| G[Reuse existing test]
 
-    E -->|No| G[Designer Agent performs cross-app semantic search on global test cases]
+    F -->|No| H[Designer Agent performs cross-app semantic search on global test cases]
 
-    C -->|No| G
+    D -->|No| H
 
-    G --> H["Similar workflow found in 5 other applications. Use those validation patterns to generate an equivalent test for this application."]
+    H --> I["Similar workflow found in 5 other applications. Use those validation patterns to generate an equivalent test for this application."]
 ```
